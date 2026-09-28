@@ -5,7 +5,7 @@ namespace chaminji2693305
 {
     class book
     {
-        private: 
+    private: 
         int id;//id: 1~1000
         int price;//price: 0~50000won
 
@@ -20,14 +20,18 @@ namespace chaminji2693305
         }
         void testPrice()
         {  
-            if(price <0||price >50000)
+            if(price <0 || price >50000)
             {
                 std::cout << "Invalid book id\n";
                 std::exit(1);
             }
         }
 
-        public:
+    public:
+        book(int d = 1, int p = 0):id{d}, price{p}
+        {
+            testID(); testPrice();
+        }
         void input()
         {
             std::cout <<"Enter book id: ";
@@ -38,12 +42,11 @@ namespace chaminji2693305
 
         void setID(int d){id=d; testID();}
         void setPrice(int p){price=p; testPrice();}
-        void print()
+        void print() const
         {
             std::cout << id << ", " << price << "won\n";
         }
-        int getID() {return id;}
-    int getPrice() {return price;}
+        int getID() const {return id;}
+        int getPrice() const {return price;}
     };
-
 }
